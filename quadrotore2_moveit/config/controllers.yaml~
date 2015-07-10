@@ -1,0 +1,6 @@
+controller_list:
+  - name: joint_trajectory_action
+    type: MultiDofFollowJointTrajectory
+    default: true
+    joints:
+      - Base

@@ -1,0 +1,21 @@
+<package>
+  <description brief="action_controller">
+
+     action_controller
+
+  </description>
+  <author>Alessio</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/action_controller</url>
+  <depend package="actionlib"/>
+  <depend package="roscpp"/>
+  <depend package="roslib"/>
+  <depend package="std_msgs"/>
+  <depend package="geometry_msgs"/>
+  <depend package="moveit_msgs"/>
+  <depend package="actionlib_msgs"/>
+
+</package>
+
+

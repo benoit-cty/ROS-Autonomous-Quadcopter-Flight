@@ -1,0 +1,13 @@
+[scene]
+name=pole_blocking_right_arm_pan
+output=mylocation.log
+runs=2
+
+[plugin]
+name=ompl_interface/OMPLPlanner
+planners=KPIECEkConfigDefault RRTConnectkConfigDefault
+runs=10
+
+[plugin]
+name=my_lib/myPlanner
+planners=planner_name

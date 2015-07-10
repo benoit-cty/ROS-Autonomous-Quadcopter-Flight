@@ -1,0 +1,9 @@
+[scene]
+name=kitchen
+output=/home/alessio/Scrivania/mylog.log
+runs=2
+
+[plugin]
+name=ompl_interface/OMPLPlanner
+planners=KPIECEkConfigDefault RRTConnectkConfigDefault
+runs=10

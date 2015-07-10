@@ -1,0 +1,1 @@
+Modified version of the standard hector_quadrotor pack, it contains a modified urdf to describe a quadrotor able to publish the position of its joints (hector_quadrotor_urdf/urdf/quadrotore.urdf) as well as a launch file to spawn it in gazebo (hector_quadrotor_gazebo/launch/MySpawn_quadrotor_with_Kinect.launch)
