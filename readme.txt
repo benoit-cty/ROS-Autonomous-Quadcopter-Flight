@@ -1,3 +1,6 @@
+You can find additional info on this work in this thesis, however it's in italian:
+https://mega.co.nz/#!bdYEWKDZ!WmsdbkD-DifIXAGAL4cHTBwb_hYw36mMpB_XMmLX5VA
+
 In order to run the simulation you will need: 
 	ROS, Hector_quadrotor, gazebo, Moveit! and the few extra in this .rar.
 
