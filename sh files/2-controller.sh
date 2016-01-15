@@ -1,3 +1,3 @@
 #!/bin/bash
-rosrun action_controller actionController
+rosrun action_controller action_controller
 

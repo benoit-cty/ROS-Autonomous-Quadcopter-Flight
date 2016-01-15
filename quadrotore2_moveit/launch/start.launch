@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<launch>
+	<!-- Start the simulation -->
+	<arg name="use_ground_truth_for_tf" default="true" />
+	<include file="$(find hector_gazebo_worlds)/launch/small_indoor_scenario.launch"/>
+   
+   <include file="$(find hector_quadrotor_gazebo)/launch/MySpawn_quadrotor.launch" >
+    <arg name="model" value="$(find hector_quadrotor_urdf)/urdf/quadrotore.urdf"/>
+     <arg name="use_ground_truth_for_tf" value="$(arg use_ground_truth_for_tf)" />
+   </include>
+
+	<node pkg="action_controller" type="action_controller" name="action_controller" output="screen"/>
+	<include file="$(find quadrotore2_moveit)/launch/plan_and_execute.launch"/>
+</launch>
