@@ -240,6 +240,8 @@
         <distortion_k3>0.0</distortion_k3>
         <distortion_t1>0.0</distortion_t1>
         <distortion_t2>0.0</distortion_t2>
+				<pointCloudCutoff>0.2</pointCloudCutoff>
+				<pointCloudCutoffMax>10</pointCloudCutoffMax>
       </plugin>
     </sensor>
   </gazebo>

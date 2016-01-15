@@ -1,35 +1,52 @@
-cmake_minimum_required(VERSION 2.4.6)
-include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
+cmake_minimum_required(VERSION 2.8.3)
+project(action_controller)
 
-# Set the build type.  Options are:
-#  Coverage       : w/ debug symbols, w/o optimization, w/ code-coverage
-#  Debug          : w/ debug symbols, w/o optimization
-#  Release        : w/o debug symbols, w/ optimization
-#  RelWithDebInfo : w/ debug symbols, w/ optimization
-#  MinSizeRel     : w/o debug symbols, w/ optimization, stripped binaries
-#set(ROS_BUILD_TYPE RelWithDebInfo)
+if(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
 
-rosbuild_find_ros_package(actionlib_msgs)
-include(${actionlib_msgs_PACKAGE_PATH}/cmake/actionbuild.cmake)
-genaction()
+find_package(Boost REQUIRED thread)
 
-rosbuild_init()
+include_directories(SYSTEM "msg_gen/cpp/include")
 
-find_package (Threads)
-#set the default path for built executables to the "bin" directory
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-#set the default path for built libraries to the "lib" directory
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+find_package(catkin REQUIRED COMPONENTS
+  moveit_core
+  pluginlib
+  actionlib
+  roscpp
+  trajectory_msgs
+  actionlib_msgs
+  std_msgs
+  message_generation
+)
 
-#uncomment if you have defined messages
-rosbuild_genmsg()
-#uncomment if you have defined services
-#rosbuild_gensrv()
+include_directories(${catkin_INCLUDE_DIRS})
+link_directories(${catkin_LIBRARY_DIRS})
 
-#common commands for building c++ executables and libraries
-#rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
-#target_link_libraries(${PROJECT_NAME} another_library)
-#rosbuild_add_boost_directories()
-#rosbuild_link_boost(${PROJECT_NAME} thread)
-rosbuild_add_executable(actionController src/actionController.cpp)
-target_link_libraries(actionController ${CMAKE_THREAD_LIBS_INIT})
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+  trajectory_msgs
+  actionlib_msgs
+  action_controller
+)
+
+catkin_package(
+  LIBRARIES
+  INCLUDE_DIRS
+  DEPENDS
+  CATKIN_DEPENDS message_runtime
+  moveit_core
+)
+
+include_directories(include)
+
+# add_library(action_controller src/actionController.cpp)
+add_executable(action_controller src/actionController.cpp)
+#add_dependencies(action_controller nav_msgs)
+target_link_libraries(action_controller ${catkin_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+
+
+#install(TARGETS action_controller LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})
+
+

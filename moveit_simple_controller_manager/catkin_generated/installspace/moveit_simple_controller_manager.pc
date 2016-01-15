@@ -1,8 +1,0 @@
-prefix=/usr/local
-
-Name: moveit_simple_controller_manager
-Description: Description of moveit_simple_controller_manager
-Version: 0.5.2
-Cflags: 
-Libs: -L/usr/local/lib 
-Requires: moveit_core

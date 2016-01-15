@@ -1,8 +1,0 @@
-prefix=/home/alessio/catkin_workspace/src/moveit_simple_controller_manager/devel
-
-Name: moveit_simple_controller_manager
-Description: Description of moveit_simple_controller_manager
-Version: 0.5.2
-Cflags: 
-Libs: -L/home/alessio/catkin_workspace/src/moveit_simple_controller_manager/devel/lib 
-Requires: moveit_core

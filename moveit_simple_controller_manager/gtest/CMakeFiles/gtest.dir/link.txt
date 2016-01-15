@@ -1,1 +1,0 @@
-/usr/bin/c++  -fPIC -g   -shared -Wl,-soname,libgtest.so -o libgtest.so CMakeFiles/gtest.dir/src/gtest-all.cc.o -L/home/alessio/catkin_workspace/src/moveit_simple_controller_manager/gtest/src -lpthread -Wl,-rpath,/home/alessio/catkin_workspace/src/moveit_simple_controller_manager/gtest/src 
