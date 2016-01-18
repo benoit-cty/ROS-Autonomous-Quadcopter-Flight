@@ -12,4 +12,6 @@
 
 	<node pkg="action_controller" type="action_controller" name="action_controller" output="screen"/>
 	<include file="$(find quadrotore2_moveit)/launch/plan_and_execute.launch"/>
+	
+	<param name="/move_group/trajectory_execution/execution_duration_monitoring" value="false" />
 </launch>
