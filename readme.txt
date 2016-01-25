@@ -1,23 +1,55 @@
-You can find additional info on this work in this thesis, however it's in italian:
+Original project from AlessioT (https://bitbucket.org/AlessioT/autonomous-flight-ros.git)
+Modified for ROS Indigo support by XXX
+
+My (XXX) contribution is quite limited to testing and updating this readme.
+Tested on Ubuntu 14.04 under ROS Indigo
+
+
+
+You can find additional info on this work in XXX thesis, however it's in italian:
 https://mega.co.nz/#!bdYEWKDZ!WmsdbkD-DifIXAGAL4cHTBwb_hYw36mMpB_XMmLX5VA
 
 In order to run the simulation you will need: 
-	ROS, Hector_quadrotor + hector_quadrotor_world, gazebo, Moveit! and the few extra in this .rar.
-
+	ROS, Hector_quadrotor + hector_quadrotor_world, gazebo, Moveit!
 The external programs can be found here:
 ROS               --->  http://wiki.ros.org/
 Hector_quadrotor  --->  http://wiki.ros.org/hector_quadrotor
 gazebo            --->  http://wiki.ros.org/gazebo
 Moveit!           --->  http://moveit.ros.org/
 
-First of all you should create a configuration pack for moveIt! in order to correctly interface it with hector quadrotor, in other word you should create a series of configuration file to correctly interface the quadrotor with the plugin.
-You can do it by yourself following this tutorials ( http://moveit.ros.org/wiki/Quick_Start) and using my modified version of hector_quadrotor.urdf (you can find it in "hector_quadrotor/hector_quadrotor_urdf/urdf/quadrotore.urdf" ), just remember to add a virtual floating joint between the base link of the quadrotor and teh fixed odometry link... 
-or you can simply use the pack I already made with everything configured --> quadrotore2_moveit.
-In the second case everything should be configured correctly and the quadrotor should be able to build a map of the place and fly itself using moveit!. 
-Now you just need to launch Gazebo and spawn the quadrotor("sh files/1-simulator.sh"), launch the action_controller node ("sh files/2-controllers.sh") and finaly launch the moveit plugin and rviz visualizer ("sh files/3-planner.sh"). Optionally you can spawn a node to teleoperate the quadrotor in the simulation from the terminal ("sh files/4-teleOp.sh").
-Maybe in order to make the sh work you should change some path!
 
-You can simply overwrite the standard's packages downloaded from the official wiki pages (like pr2_teleop, hector_quadrotor or moveit_simple_controller_manager) with my modified ones and recompile all in order to obtain the modified packages and the additional functionalities.
+If you are using ubuntu you could follow these instruction :
+Installing ROS Indigo
+
+
+
+Make a workspace folder
+mkdir my_workspace
+cd my_workspace
+git clone https://bitbucket.org/Trancept/autonomous-quadcopter-flight-ros.git
+mv autonomous-quadcopter-flight-ros src
+cd src
+catkin_init_workspace
+cd ..
+catkin_make
+source devel/setup.bash
+roslaunch quadrotore2_moveit start.launch
+
+Open another terminal and run to manual piloting it
+XXXX
+
+For autonomous navigation you can run XXXX
+
+
+Rigth-clic in RVIZ Displays panel border to show Motion Panel.
+Choose RRTConnectkConfigDefault
+Grow up the workspace
+Plan
+Execute
+
+
+
+
 Contents of the folders:
 
 ->action_controller:
@@ -30,7 +62,7 @@ Contents of the folders:
 	modified urdf of the quadrotor to publish the odometry of the joints
 
 ->pr2_teleop:
-	simple node to teleop the simulated quadrotor using the keyboard
+	simple node to teleop the simulated quadrotor using the keyboard XXXX supprimer, non ?
 
 ->quadrotore2_moveit:
 	configuration file for moveit!
