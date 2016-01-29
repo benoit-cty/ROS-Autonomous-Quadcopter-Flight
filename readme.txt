@@ -46,6 +46,8 @@ $ python ./src/script/tx_keyboard_ctrl.py
   - Move the goal to where you whant
   - Click on Plan
   - Click on Execute
+- To move the quadcopter in Python using MoveIt! you could use this script
+$ python ./src/script/plan_path_example.py
 - If you whant to launch only part of simulation, you can run sh script (re-run source devel/setup.bash in every terminal) :
 $ sh src/script/1-simulator.sh
 $ sh src/script/2-controller.sh
